@@ -8,7 +8,6 @@ enum layer_number {
     _RAISE, 
     _TILDE,
     _NUMBER,
-    _OPTION,
     _ADJUST,
 };
 
@@ -69,11 +68,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //----------------------------------                                         -------------------------------------
     TTT , TTT, TTT, TTT, TTT, TTT,                                               TTT, TTT, TTT, TTT, TTT, TTT,
     //----------------------------------                                         -------------------------------------
-    TTT, TD_Q_ESC, KC_W, KC_E, KC_R, KC_T,                                       KC_Y, KC_U, KC_I, LT(_OPTION,KC_O), KC_P, TTT,
+    TTT, TD_Q_ESC, KC_W, KC_E, KC_R, KC_T,                                       KC_Y, KC_U, KC_I, KC_O, KC_P, TTT,
     //----------------------------------                                         -------------------------------------
     TTT, KC_A, KC_S, KC_D, LT(_TILDE, KC_F), KC_G,                               KC_H, KC_J, KC_K, KC_L, KC_BSPC, TTT,
     //----------------------------------                                         -------------------------------------
-    TTT, LCTL_T(KC_Z), LGUI_T(KC_X), LALT_T(KC_C), LSFT_T(KC_V), KC_B,  TTT, TTT,        LT(_NUMBER,KC_N ), RSFT_T(KC_M), RALT_T(KC_COMM), RGUI_T(KC_DOT), LCTL_T(KC_SLSH),TTT,
+    TTT, LCTL_T(KC_Z), LGUI_T(KC_X), LALT_T(KC_C), LSFT_T(KC_V), KC_B,  TTT, TTT,      LT(_NUMBER,KC_N ), RSFT_T(KC_M), RALT_T(KC_COMM), RGUI_T(KC_DOT), LCTL_T(KC_SLSH),TTT,
     //----------------------------------                            -------------------------------------
              TTT, TTT, KC_TAB , LT(_RAISE, KC_SPC), LT(_LOWER, KC_ENT), OSM(MOD_LSFT), TTT, TTT),
 
@@ -81,31 +80,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_NUMBER] = LAYOUT(
     //----------------------------------                                         -------------------------------------
-    TTT, TTT, TTT, TTT, TTT, TTT,                        TTT, TTT, TTT, TTT, TTT, TTT,
+    TTT, TTT, TTT, TTT, TTT, TTT,                                                TTT, TTT, TTT, TTT, TTT, TTT,
     //----------------------------------                                         -------------------------------------
-    TTT,  KC_1, KC_2, KC_3, KC_4, KC_5,                                      TTT, TTT, TTT, TTT, TTT, TTT,
+    TTT,  KC_1, KC_2, KC_3, KC_4, KC_5,                                          TTT, TTT, TTT, TTT, TTT, TTT,
     //----------------------------------                                         -------------------------------------
-    TTT,  KC_6, KC_7, KC_8, KC_9, KC_0,                                      TTT, TTT,  TTT, TTT, TTT, TTT,
+    TTT,  KC_6, KC_7, KC_8, KC_9, KC_0,                                          TTT, TTT,  TTT, TTT, TTT, TTT,
     //----------------------------------                                         -------------------------------------
-    TTT, ES_PLUS, ES_MINS, ES_ASTR, ES_SLSH, ES_EQL,      TTT, TTT, TTT, TTT, TTT, TTT, TTT, TTT,
+    TTT, ES_PLUS, ES_MINS, ES_ASTR, ES_SLSH, ES_EQL,      TTT, TTT,              TTT, TTT, TTT, TTT, TTT, TTT,
     //----------------------------------                                         -------------------------------------
     TTT, TTT, TTT, TTT, TTT, TTT, TTT, TTT),
     //----------------------------------                                         -------------------------------------
-
-
-[_OPTION] = LAYOUT(
-    //----------------------------------                                         -------------------------------------
-    TTT, TTT, TTT, TTT, TTT, TTT,                                                TTT, TTT, TTT, TTT, TTT, TTT,
-    //----------------------------------                                         -------------------------------------
-    TTT, TTT, TTT, TTT, TTT, KC_TAB,                                             TTT, TTT, TTT, TTT, TTT, TTT,
-    //----------------------------------                                         -------------------------------------
-    TTT, KC_LALT, TTT, TTT, KC_F4, TTT,                                          TTT, KC_RCTL, TTT, TTT, TTT, TTT,
-    //----------------------------------                                         -------------------------------------
-    TTT, KC_Z,    KC_X,    KC_C,    KC_V,    TTT,   TTT,  TTT,                   TTT, TTT, TTT, TTT , TTT, TTT,
-    //----------------------------------                                         -------------------------------------
-                                       TTT, TTT, TTT, KC_SPC, TTT, KC_RCMD, TTT, TTT),
-
-
 
 [_LOWER] = LAYOUT(
     //----------------------------------                                         -------------------------------------
@@ -123,13 +107,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //----------------------------------                                         -------------------------------------
     TTT, TTT, TTT, TTT, TTT, TTT,                         TTT, TTT, TTT, TTT, TTT, TTT,
     //----------------------------------                                         -------------------------------------
-    TTT, TTT, TTT, TTT, TTT, TTT,                         KC_PSCR, KC_PGDN, KC_PGUP, KC_HOME, KC_END, TTT,
+    TTT, TTT, TTT, TTT, TTT, TTT,                         TTT, KC_PGDN, KC_PGUP, KC_HOME, KC_END, TTT,
     //----------------------------------                                         -------------------------------------
     TTT, TTT, TTT, TTT, TTT, TTT,                         KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, KC_INS, TTT,
     //----------------------------------                                         -------------------------------------
-    TTT, TTT, TTT, TTT, TTT, TTT,   TTT,  TTT,            TTT, TTT, ES_SCLN, ES_COLN, ES_UNDS, TTT,
+    TTT, TTT, TTT, TTT, TTT, TTT,   TTT,  TTT,            TTT, KC_RSFT, ES_SCLN, ES_COLN, LCTL_T(ES_UNDS), TTT,
     //----------------------------------                                         -------------------------------------
-                                       TTT, TTT, TTT, TTT, TTT, KC_DEL, TTT, TTT),
+                                       TTT, TTT, TTT, TTT, KC_PSCR, TTT, TTT, TTT),
 
 
   [_TILDE] = LAYOUT(
