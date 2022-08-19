@@ -23,20 +23,6 @@ enum {
 };
 
 
-void dance_one(qk_tap_dance_state_t *state, void *user_data) {
-    if (state->count == 1)
-        register_code16(ES_LPRN);
-    else
-        register_code16(ES_LBRC);
-}
-
-
-void dance_one_reset(qk_tap_dance_state_t *state, void *user_data) {
-    if (state->count == 1)
-        unregister_code16(ES_LPRN);
-    else
-        unregister_code16(ES_LBRC);
-}
 
 qk_tap_dance_action_t tap_dance_actions[] = {
     // Tap once for " twice por '
@@ -71,10 +57,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     TTT, TD_Q_ESC, KC_W, KC_E, KC_R, KC_T,                                       KC_Y, KC_U, KC_I, KC_O, KC_P, TTT,
     //----------------------------------                                         -------------------------------------
     TTT, KC_A, KC_S, KC_D, LT(_TILDE, KC_F), KC_G,                               KC_H, KC_J, KC_K, KC_L, KC_BSPC, TTT,
-    //----------------------------------                                         -------------------------------------
-    TTT, LCTL_T(KC_Z), LGUI_T(KC_X), LALT_T(KC_C), LSFT_T(KC_V), KC_B,  TTT, TTT,      LT(_NUMBER,KC_N ), RSFT_T(KC_M), RALT_T(KC_COMM), RGUI_T(KC_DOT), LCTL_T(KC_SLSH),TTT,
+    //----------------------------------                                         ------------------- ------------------
+    TTT, LCTL_T(KC_Z), LGUI_T(KC_X), LALT_T(KC_C), LSFT_T(KC_V), KC_B,  TTT, TTT, LT(_NUMBER, KC_N) , RSFT_T(KC_M), RALT_T(KC_COMM), RGUI_T(KC_DOT), RCTL_T(KC_SLSH),TTT,
     //----------------------------------                            -------------------------------------
-             TTT, TTT, KC_TAB , LT(_RAISE, KC_SPC), LT(_LOWER, KC_ENT), OSM(MOD_LSFT), TTT, TTT),
+             TTT, TTT, KC_TAB , LT(_RAISE, KC_SPC), LT(_LOWER, KC_ENT), OSM(MOD_RGUI), TTT, TTT),
 
 
 
@@ -84,7 +70,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //----------------------------------                                         -------------------------------------
     TTT,  KC_1, KC_2, KC_3, KC_4, KC_5,                                          TTT, TTT, TTT, TTT, TTT, TTT,
     //----------------------------------                                         -------------------------------------
-    TTT,  KC_6, KC_7, KC_8, KC_9, KC_0,                                          TTT, TTT,  TTT, TTT, TTT, TTT,
+    TTT, KC_6, KC_7, KC_8, KC_9, KC_0,                                           TTT, TTT,  TTT, TTT, TTT, TTT,
     //----------------------------------                                         -------------------------------------
     TTT, ES_PLUS, ES_MINS, ES_ASTR, ES_SLSH, ES_EQL,      TTT, TTT,              TTT, TTT, TTT, TTT, TTT, TTT,
     //----------------------------------                                         -------------------------------------
@@ -95,11 +81,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //----------------------------------                                         -------------------------------------
     TTT, TTT, TTT, TTT, TTT, TTT,                                                TTT, TTT, TTT, TTT, TTT, TTT,
     //----------------------------------                                         -------------------------------------
-    TTT, ES_HASH, ES_LPRN, ES_RPRN, ES_LABK, ES_RABK,                            KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, TTT,
+    TTT, ES_HASH, ES_LPRN, ES_RPRN, KC_NONUS_BACKSLASH, LSFT(KC_NONUS_BACKSLASH),                            KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, TTT,
     //----------------------------------                                         -------------------------------------
     TTT, ES_AMPR, ES_LCBR, ES_RCBR, ES_SLSH, ES_BSLS,                            KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, TTT,
     //----------------------------------                                         -------------------------------------
-    TTT, ES_AT, ES_LBRC, ES_RBRC, ES_ASTR, ES_EQL,   TTT,  TTT,                  KC_F11, KC_F12, TTT, TTT , TTT, TTT,
+    TTT, ES_AT, ES_LBRC, ES_RBRC, ES_ASTR, ES_EQL,   TTT,  TTT,                  KC_F11, KC_F12, KC_CAPP, KC_CPYP , TTT, TTT,
     //----------------------------------                                         -------------------------------------
                                        TTT, TTT, ES_PIPE, ES_PERC, TTT, TTT, TTT, TTT),
 
@@ -118,9 +104,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_TILDE] = LAYOUT(
   TTT, TTT, TTT, TTT, TTT, TTT,                   TTT, TTT, TTT, TTT, TTT, TTT,
-  TTT, TTT, TTT, TTT, TTT, TTT,                   ES_CIRC, ES_TILD, ES_DIAE, TTT, TTT, TTT,
+  TTT, TTT, TTT, TTT, TTT, TTT,                   ES_CIRC, ES_TILD, ES_DIAE, ES_IQUE, ES_QUES, TTT,
   TTT, TTT, TTT, TTT, TTT, TTT,                   ES_GRV, ES_ACUT , ES_QUOT, ES_DQUO, TTT, TTT,
-  TTT, TTT, TTT, TTT, TTT, TTT, TTT, TTT,         KC_SCLN, TD_QUES, TD_EXCL, TTT, TTT, TTT,
+  TTT, TTT, TTT, TTT, TTT, TTT, TTT, TTT,         KC_SCLN, ES_IEXL, ES_EXLM, TTT, TTT, TTT,
                              TTT, TTT, TTT, TTT, TTT,  TTT, TTT, TTT
   ),
 
